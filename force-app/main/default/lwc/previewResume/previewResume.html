@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Preview Resume" icon-name="standard:contact" class="slds-m-top_medium">
+        <div class="slds-p-around_medium">
+            
+            <!-- Personal Info -->
+            <div>
+                <h2 class="slds-text-heading_medium">{personalInfo.fullName}</h2>
+                <p>{personalInfo.email} | {personalInfo.phone} | {personalInfo.address}</p>
+                <hr class="slds-m-vertical_x-small" />
+            </div>
+
+            <!-- Education Section -->
+            <div class="slds-m-top_medium">
+                <p><strong>Education</strong></p>
+                <template for:each={educations} for:item="education">
+                    <div key={education.id}>
+                        <p><strong>{education.degree}</strong></p>
+                        <p>{education.institute}</p>
+                        <p>{education.year}</p>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Work Experience Section -->
+            <div class="slds-m-top_medium">
+                <p><strong>Work Experience</strong></p>
+                <template for:each={workExperiences} for:item="workExperience">
+                    <div key={workExperience.id}>
+                        <p><strong>{workExperience.title}</strong> - {workExperience.name}</p>
+                        <p>{workExperience.startDate} - {workExperience.endDate}</p>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="slds-m-top_medium">
+                <p><strong>Skills</strong></p>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <template for:each={skills} for:item="skill">
+                        <li key={skill.id}>{skill.name}</li>
+                    </template>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="slds-m-top_medium">
+                <p><strong>Summary</strong></p>
+                <p>{summary}</p>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
